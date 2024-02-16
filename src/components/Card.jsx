@@ -2,6 +2,8 @@ import React from "react";
 
 const Card = ({ name, avg, quantity, LTP, profit }) => {
   let color = profit > 0 ? "#24FF00" : "#FF4545";
+  let poss = ["text-[#24FF00]","text-[#FF4545]"]
+  console.log(color)
   return (
     <div className=" max-w-[1240px] mx-auto text-white w-full bg-transparent border-t-2 border-b-1 border-slate-300 p-7 flex flex-col justify-between">
       <div className="firstRow text-white flex">
@@ -19,15 +21,13 @@ const Card = ({ name, avg, quantity, LTP, profit }) => {
       <div className="third mt-3 text-white flex justify-between">
         <div className="quantity flex">
           <div className="opacity-70">Invested:</div>
-          <div className="opacity-50 px-2">{quantity*avg}</div>
+          <div className="opacity-50 px-2">{(quantity * avg).toFixed(2)}</div>
         </div>
         <div className="LTP flex">
           <div className="opacity-70">LTP:</div>
           <div className="opacity-50 px-2">{LTP}</div>
         </div>
       </div>
-
-      
     </div>
   );
 };

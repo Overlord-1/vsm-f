@@ -7,11 +7,12 @@ const PLtracker = ({invested, current,profit,perChg}) => {
     // #24FF00 green color
     // #FF4545 red color
     let color = profit>0?"#24FF00":"#FF4545";
+    let poss = ["text-[#24FF00]","text-[#FF4545]","bg-[#343434]","text-[#ffffff]","text-[#24FF00]","text-[#FF4545]","bg-[#24FF00]","bg-[#FF4545]"]
   return (
     
     <div className='max-w-[1240px] mx-auto'>
         <div className='w-[80%] bg-[#343434] p-5 mx-auto rounded-2xl items-center justify-center gap-4'>
-                <div className="firstRow flex  p-2 border-b-2 border-[#9D9D9D] justify-between items-center md:justify-evenly md:border-transparent">
+                <div className="firstRow flex  p-2 border-b-2 border-[#9D9D9D] justify-evenly items-center md:justify-evenly md:border-transparent">
                     <div className='invested text-white'>
                         <h1 className='opacity-80 text-sm md:text-xl'>Invested</h1>
                         <h1 className='text-2xl md:text-3xl'>{invested}</h1>
