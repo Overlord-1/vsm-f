@@ -58,16 +58,10 @@ function App() {
         bgColor={"#343434"}
       />
       <MiddleRow />
-      {/* <Card name={"HDFC"} avg={93.87} quantity={3} LTP={81.25} profit={434} />
-      <Card name={"JIOFN"} avg={93.87} quantity={3} LTP={81.25} profit={-255} />
-      <Card name={"ONGC"} avg={93.87} quantity={3} LTP={81.25} profit={-434} />
-      <Card name={"HDFC"} avg={93.87} quantity={3} LTP={81.25} profit={434} />
-      <Card name={"HDFC"} avg={93.87} quantity={3} LTP={81.25} profit={434} />
-      <Card name={"HDFC"} avg={93.87} quantity={3} LTP={81.25} profit={434} /> */}
       {data.map(parameter=>(
         <Card name={parameter.name} avg={parameter.avg} quantity={parameter.quantity} LTP={parameter.LTP} profit={parameter.profit} />
       ))}  
-    </>
+     </>
   );
 }
 
