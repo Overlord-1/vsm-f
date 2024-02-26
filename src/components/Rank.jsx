@@ -16,7 +16,7 @@ const Rank = ({ color, topRank, rank, name, score }) => {
         }
         
         {topRank ? (
-          <div className="name font-semibold text-opacity-70">{name}</div>
+          <div className="name font-semibold text-opacity-70 text-black">{name}</div>
         ) : (
           <div
             className="name 
@@ -28,7 +28,7 @@ const Rank = ({ color, topRank, rank, name, score }) => {
       </div>
 
       {topRank ? (
-        <div className="score mr-5 font-bold">{score}</div>
+        <div className="score mr-5 font-bold text-black">{score}</div>
       ) : (
         <div className="score mr-5 font-bold text-white">{score}</div>
       )}
