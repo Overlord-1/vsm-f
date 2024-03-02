@@ -5,6 +5,7 @@ import News from './pages/News'
 import Login from './pages/Login'
  
 import { Route, Routes } from 'react-router'
+import Loading from './pages/Loading'
 
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
       <Route path='/Leaderboard' element= {<Leaderboard />}/>
       <Route path='/news' element= {<News />}/>
       <Route path='/portfolio' element= {<Portfolio />}/>
+      <Route path='/loading' element= {<Loading />}/>
     </Routes>
     </>
   )
