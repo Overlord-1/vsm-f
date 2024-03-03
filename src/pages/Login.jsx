@@ -82,17 +82,19 @@ const Login = () => {
 
     try {
       const response = await axios.post("http://localhost:8080/auth/login", {
-        teamCode,
-        password,
+        email:teamCode,
+        password:password,
       });
 
       const token = response.data.data.token;
       console.log("Login Successful! Token:", token);
+      localStorage.setItem("authToken", token);
       setLoginErr(false); // Reset loginErr on successful login
+      navigate("/loading");
     } catch (error) {
       console.error("Login Failed:", error.response?.data);
       setLoginErr(true);
-      navigate("/loading");
+      
     } finally {
       setLoading(false);
     }
@@ -107,8 +109,8 @@ const Login = () => {
           onSubmit={handleLogin}
         >
           <input
-            type="text"
-            placeholder="Team code"
+            type="email"
+            placeholder="E-mail"
             value={teamCode}
             onChange={(e) => setTeamCode(e.target.value)}
             className="bg-black p-5 rounded-xl m-3"

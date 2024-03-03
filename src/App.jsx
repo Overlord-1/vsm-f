@@ -3,9 +3,11 @@ import Portfolio from './pages/Portfolio'
 import Leaderboard from './pages/Leaderboard'
 import News from './pages/News'
 import Login from './pages/Login'
- 
+import io from 'socket.io-client' 
 import { Route, Routes } from 'react-router'
 import Loading from './pages/Loading'
+
+
 
 
 const App = () => {

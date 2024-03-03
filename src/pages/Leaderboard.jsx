@@ -8,7 +8,6 @@ const Leaderboard = () => {
       <div className="max-w-[1240px] mx-auto">
         <LeaderboardHeader />
         <RankList />
-
       </div>
     </>
   );
