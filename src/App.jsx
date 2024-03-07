@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Portfolio from './pages/Portfolio'
 import Leaderboard from './pages/Leaderboard'
 import News from './pages/News'
@@ -11,8 +11,11 @@ import Loading from './pages/Loading'
 
 
 const App = () => {
+
+
   return (
     <>
+    
     <Routes>
       <Route path='/' element= {<Login />}/>
       <Route path='/Leaderboard' element= {<Leaderboard />}/>

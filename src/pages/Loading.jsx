@@ -36,7 +36,7 @@ const Loading = () => {
   function getTimeRemaining() {
     const now = new Date();
     const targetTime = new Date(now);
-    targetTime.setHours(10, 0, 0, 0); // Setting the target time to 1 pm , change in 24 hr format only
+    targetTime.setHours(0, 0, 0, 0); // Setting the target time to 1 pm , change in 24 hr format only
 
     let timeDiff = targetTime - now;
     timeDiff = Math.max(0, timeDiff);
