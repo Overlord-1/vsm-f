@@ -2,7 +2,7 @@ import React from 'react'
 
 const CalcRound = () => {
   return (
-    <div>CalcRound is going on </div>
+    <div className='text-3xl'>CalcRound is going on </div>
   )
 }
 
