@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NewsCard from "../components/NewsCard";
 import axios from "axios";
+// import { io } from 'socket.io-client';
 
 const News = () => {
   const token = localStorage.getItem("authToken");
@@ -8,6 +9,7 @@ const News = () => {
   const [news, setNews] = useState([]);
   const [stock, setStockPrice] = useState([]);
 
+  
   useEffect(() => {
     const fetchData = async () => {
       try {

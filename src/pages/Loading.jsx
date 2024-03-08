@@ -2,12 +2,52 @@ import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import Logo from "../assets/vsmLogo.png"; 
 import { useNavigate } from "react-router-dom";
+import { io } from "socket.io-client";
 
 const Loading = () => {
   const [redirect, setRedirect] = useState(false);
+  const token = localStorage.getItem("authToken");
   const [timeRemaining, setTimeRemaining] = useState(getTimeRemaining());
-  let resetVal = 1000;  // value used to call useEffect every 1 second DO NOT ALTER THIS VALUE
+  let resetVal = 1000;  // value used to call useEffect every 1 second
   const navigate = useNavigate();
+ 
+
+  useEffect(() => {
+
+    const socket = io('http://localhost:8080',{
+      transportOptions: {
+        polling: {
+          extraHeaders: {
+            'Authorization': `Bearer ${token}`,
+          },
+        },
+      },
+    });
+
+    socket.on('connect', () => {
+      console.log('Connected to server');
+    });
+
+    socket.on('game:stage:TRADING_STAGE', () => {
+      console.log("Market is open");
+      setRedirect("/news");
+    });
+
+    socket.on('game:stage:CALCULATION_STAGE', () => {
+      console.log("Calculation stage");
+      setRedirect("/calcround");
+    });
+
+    socket.on('game:round', () => {
+      console.log("New round started");
+      setRedirect("/leaderboard");
+    });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, [token]);
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       const remaining = getTimeRemaining();
