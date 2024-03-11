@@ -114,7 +114,7 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
       <div className="card w-[80%] p-5 bg-[#1E1F26] mx-auto mt-6 rounded-lg flex flex-col justify-evenly ">
         <div className="row1 flex justify-between ">
           <div className="name  text-2xl text-white font-bold">{name}</div>
-          <div className="name  text-2xl text-white">$ {stockprice}</div>
+          <div className="name  text-2xl text-white">₹ {stockprice}</div>
         </div>
         <div className="row2 flex justify-between  text-white mt-5">
           <div className="ml-4">
@@ -168,7 +168,7 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
 
             <div className="flex items-center">
               <label className="mr-3">Total Cost of shares:</label>
-              <div className="text-3xl font-mono">$</div>
+              <div className="text-3xl font-mono">₹</div>
               <div className="text-3xl font-mono">
                 {" "}
                 {inputValue * stockprice}

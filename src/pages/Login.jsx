@@ -36,7 +36,7 @@ const Login = () => {
   };
 
   return (
-    <div className="main flex mx-auto items-center justify-center h-screen flex-col bg-gradient-to-b from-slate-700 to-white">
+    <div className="main flex mx-auto items-center justify-center h-screen flex-col bg-gradient-to-b from-slate-700 to-slate-950">
       <div className="flex mx-auto items-center justify-center md:justify-center h-screen flex-col">
         <h1 className="text-6xl mb-7 mainText font-bold uppercase">VSM 2024</h1>
         <form
@@ -59,7 +59,7 @@ const Login = () => {
           />
           <button
             type="submit"
-            className={`transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 active:scale-110 active:bg-indigo-500 duration-300 w-[150px]  p-5 rounded-xl ${
+            className={`transition ease-in-out delay-150 bg-[#6cff739e] text-black hover:-translate-y-1 active:scale-110 active:bg-indigo-500 duration-300 w-[150px]  p-5 rounded-xl ${
               loading ? "cursor-not-allowed opacity-50" : ""
             }`}
             disabled={loading}

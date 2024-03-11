@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NewsCard from "../components/NewsCard";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 // import { io } from 'socket.io-client';
 
 const News = () => {
@@ -8,8 +9,15 @@ const News = () => {
   const [funds, setFunds] = useState(0);
   const [news, setNews] = useState([]);
   const [stock, setStockPrice] = useState([]);
+  const navigate = useNavigate();
 
-  
+  const handlePortfolio = () => {
+    navigate("/portfolio");
+  }
+  const handleLeaderboard = () => {
+    navigate("/leaderboard");
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -51,11 +59,24 @@ const News = () => {
 
   return (
     <>
-      {/* ... other JSX code ... */}
       <div className="max-w-[1240px] mx-auto flex flex-col relative">
         <h1 className="text-[#6cff73] mx-auto rounded-lg font-bold bg-[#1E1F26] p-4 text-2xl my-5 px-5 md:text-4xl sticky top-0 z-10">
-          Remaining Funds = $ {funds}
+          Remaining Funds = ₹ {funds}
         </h1>
+        <div className="flex">
+          <button
+            className="text-[#6cff73] font-bold bg-[#1E1F26] p-3 rounded-lg px-3 m-5 max-w-[1200px] mx-auto"
+            onClick={handlePortfolio}
+          >
+            View Portfolio
+          </button>
+          <button
+            className="text-[#6cff73] font-bold bg-[#1E1F26] p-3 rounded-lg px-3 m-5 max-w-[1200px] mx-auto"
+            onClick={handleLeaderboard}
+          >
+            View Leaderboard
+          </button>
+        </div>
         <div className="row1 flex flex-col md:grid md:grid-cols-2 ">
           {wordArr.map((word, index) => {
             const stockItem = stock.find((item) => item.id === word);
