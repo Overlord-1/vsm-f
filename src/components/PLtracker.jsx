@@ -14,8 +14,8 @@ const PLtracker = ({invested}) => {
         <div className='w-[80%] bg-[#343434] p-5 mx-auto rounded-2xl items-center justify-center gap-4'>
                 <div className="firstRow flex  p-2 justify-evenly items-center md:justify-evenly md:border-transparent">
                     <div className='invested text-white'>
-                        <h1 className='opacity-80 text-2xl md:text-xl'>Total Invested</h1>
-                        <h1 className='text-4xl md:text-3xl'>{invested}</h1>
+                        <h1 className='opacity-80 text-xl md:text-xl'>Total Invested</h1>
+                        <h1 className='text-2xl md:text-xl'>{invested}</h1>
                     </div>
                     {/* <div className='invested text-white'>
                         <h1 className='opacity-80 text-sm md:text-xl'>Current</h1>

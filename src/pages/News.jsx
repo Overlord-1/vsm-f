@@ -31,6 +31,7 @@ const News = () => {
           config
         );
         setNews(news.data.data);
+        // console.log(news.data.data);
         const funds = await axios.get(
           "http://localhost:8080/game/info/balance",
           config

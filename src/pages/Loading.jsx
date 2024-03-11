@@ -26,26 +26,20 @@ const Loading = () => {
 
     socket.on('connect', () => {
       console.log('Connected to server');
+      socket.on('game:stage:TRADING_STAGE', () => {
+        console.log("Market is open");
+        setRedirect("/news");
+      });
+  
+      socket.on('game:stage:CALCULATION_STAGE', () => {
+        console.log("Calculation stage");
+        setRedirect("/calcround");
+      });
     });
 
-    socket.on('game:stage:TRADING_STAGE', () => {
-      console.log("Market is open");
-      setRedirect("/news");
-    });
+    
 
-    socket.on('game:stage:CALCULATION_STAGE', () => {
-      console.log("Calculation stage");
-      setRedirect("/calcround");
-    });
 
-    socket.on('game:round', () => {
-      console.log("New round started");
-      setRedirect("/leaderboard");
-    });
-
-    return () => {
-      socket.disconnect();
-    };
   }, [token]);
 
   useEffect(() => {

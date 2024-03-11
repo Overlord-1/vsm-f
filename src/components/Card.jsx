@@ -15,7 +15,7 @@ const Card = ({ name, avg, quantity}) => {
       </div>
       <div className="secondRow flex justify-between">
         <div className="stockName text-3xl mt-2 font-bold">{name}</div>
-        <div className={`stockName text-3xl mt-2 text-[${color}]`}>
+        <div className={`stockName text-2xl mt-2 text-white font-bold`}>
           {(quantity*avg).toFixed(2)}
         </div>
       </div>
