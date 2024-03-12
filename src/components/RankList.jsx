@@ -31,7 +31,7 @@ const RankList = () => {
         };
 
         const rankList = await axios.get(
-          "http://134.209.159.172:8080/game/info/leaderboard",
+          "https://vsm-server-7rgs.onrender.com/game/info/leaderboard",
           config
         );
         console.log(rankList.data.data);

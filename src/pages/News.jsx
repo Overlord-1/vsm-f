@@ -27,18 +27,18 @@ const News = () => {
           },
         };
         const news = await axios.get(
-          "http://134.209.159.172:8080/game/info/news",
+          "https://vsm-server-7rgs.onrender.com/game/info/news",
           config
         );
         setNews(news.data.data);
         // console.log(news.data.data);
         const funds = await axios.get(
-          "http://134.209.159.172:8080/game/info/balance",
+          "https://vsm-server-7rgs.onrender.com/game/info/balance",
           config
         );
         setFunds(funds.data.data.balance);
         const stockPrice = await axios.get(
-          "http://134.209.159.172:8080/game/info/stocks",
+          "https://vsm-server-7rgs.onrender.com/game/info/stocks",
           config
         );
         setStockPrice(stockPrice.data.data);
