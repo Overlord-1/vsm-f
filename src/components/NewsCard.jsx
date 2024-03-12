@@ -60,7 +60,7 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
       try {
         const config = { headers: { Authorization: `Bearer ${token}` } };
         const response = await axios.post(
-          "http://localhost:8080/game/buy-stock",
+          "https://vsm-server-7rgs.onrender.com/game/buy-stock",
           {
             stock: name,
             amount: parseInt(inputValue),
@@ -87,7 +87,7 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
       try {
         const config = { headers: { Authorization: `Bearer ${token}` } };
         const response = await axios.post(
-          "http://localhost:8080/game/sell-stock",
+          "https://vsm-server-7rgs.onrender.com/game/sell-stock",
           {
             stock: name,
             amount: parseInt(inputValue),

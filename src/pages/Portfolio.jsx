@@ -19,7 +19,7 @@ const Portfolio = () => {
           },
         };
         const portfolio = await axios.get(
-          "http://localhost:8080/game/info/portfolio",
+          "https://vsm-server-7rgs.onrender.com/game/info/portfolio",
           config
         );
         console.log(portfolio.data.data.portfolio);

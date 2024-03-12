@@ -16,7 +16,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:8080/auth/login", {
+      const response = await axios.post("https://vsm-server-7rgs.onrender.com/auth/login", {
         email:teamCode,
         password:password,
       });
