@@ -39,7 +39,6 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
     }
   }, [buySucces, sellSuccess, buyInsuccess, sellInsuccess]);
 
-  
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
     if (!isNaN(inputValue) && inputValue >= 0) {
@@ -60,7 +59,7 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
       try {
         const config = { headers: { Authorization: `Bearer ${token}` } };
         const response = await axios.post(
-          "https://vsm-server-7rgs.onrender.com/game/buy-stock",
+          "http://134.209.159.172:8080/game/buy-stock",
           {
             stock: name,
             amount: parseInt(inputValue),
@@ -77,7 +76,6 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
         console.error("Error buying stock", error);
         setBuyInsuccess(true);
         setBuyErrorMsg("You do not have enough funds to buy");
-
       }
     }
   };
@@ -87,7 +85,7 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
       try {
         const config = { headers: { Authorization: `Bearer ${token}` } };
         const response = await axios.post(
-          "https://vsm-server-7rgs.onrender.com/game/sell-stock",
+          "http://134.209.159.172:8080/game/sell-stock",
           {
             stock: name,
             amount: parseInt(inputValue),

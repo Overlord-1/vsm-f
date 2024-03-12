@@ -16,7 +16,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "https://vsm-server-7rgs.onrender.com/auth/login",
+        "http://134.209.159.172:8080/auth/login",
         {
           email: teamCode,
           password: password,

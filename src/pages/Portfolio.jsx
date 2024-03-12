@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import PLtracker from "../components/PLtracker";
 import Button from "../components/Button";
@@ -6,10 +6,9 @@ import MiddleRow from "../components/MiddleRow";
 import Card from "../components/Card";
 import axios from "axios";
 
-
 const Portfolio = () => {
   const [portfolio, setPortfolio] = useState([]);
-  const token = localStorage.getItem("authToken"); 
+  const token = localStorage.getItem("authToken");
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -19,7 +18,7 @@ const Portfolio = () => {
           },
         };
         const portfolio = await axios.get(
-          "https://vsm-server-7rgs.onrender.com/game/info/portfolio",
+          "http://134.209.159.172:8080/game/info/portfolio",
           config
         );
         console.log(portfolio.data.data.portfolio);
@@ -68,26 +67,23 @@ const Portfolio = () => {
   //     profit: -151,
   //   }
 
-
   // ];
   const total = portfolio.reduce((acc, cur) => acc + cur.value, 0);
   return (
     <>
       <Header text={"Portfolio"} />
-      <PLtracker
-        invested={total}
-      />
-      <Button
-        text={"Back to news"}
-        txtColor={"#ffffff"}
-        bgColor={"#343434"}
-      />
+      <PLtracker invested={total} />
+      <Button text={"Back to news"} txtColor={"#ffffff"} bgColor={"#343434"} />
       <MiddleRow />
-      {portfolio.map(parameter => (
-        <Card name={parameter.name} avg={parameter.value/parameter.volume} quantity={parameter.volume} />
+      {portfolio.map((parameter) => (
+        <Card
+          name={parameter.name}
+          avg={parameter.value / parameter.volume}
+          quantity={parameter.volume}
+        />
       ))}
     </>
-  )
-}
+  );
+};
 
-export default Portfolio
+export default Portfolio;

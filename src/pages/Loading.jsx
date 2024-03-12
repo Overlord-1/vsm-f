@@ -14,11 +14,11 @@ const Loading = () => {
 
   useEffect(() => {
 
-    const socket = io('https://vsm-server-7rgs.onrender.com',{
+    const socket = io("http://134.209.159.172:8080", {
       transportOptions: {
         polling: {
           extraHeaders: {
-            'Authorization': `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
           },
         },
       },
