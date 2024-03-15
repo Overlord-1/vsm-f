@@ -10,11 +10,12 @@ const Loading = () => {
   const [timeRemaining, setTimeRemaining] = useState(getTimeRemaining());
   let resetVal = 1000;  // value used to call useEffect every 1 second
   const navigate = useNavigate();
+  const URL = process.env.API_URL;
  
 
   useEffect(() => {
 
-    const socket = io('http://localhost:8080',{
+    const socket = io(`${URL}`,{
       transportOptions: {
         polling: {
           extraHeaders: {

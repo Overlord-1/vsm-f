@@ -10,6 +10,7 @@ const News = () => {
   const [news, setNews] = useState([]);
   const [stock, setStockPrice] = useState([]);
   const navigate = useNavigate();
+  const URL  = process.env.API_URL;
 
   const handlePortfolio = () => {
     navigate("/portfolio");
@@ -27,17 +28,17 @@ const News = () => {
           },
         };
         const news = await axios.get(
-          "http://localhost:8080/game/info/news",
+          `${URL}/game/info/news`,
           config
         );
         setNews(news.data.data);
         const funds = await axios.get(
-          "http://localhost:8080/game/info/balance",
+          `${URL}/game/info/balance`,
           config
         );
         setFunds(funds.data.data.balance);
         const stockPrice = await axios.get(
-          "http://localhost:8080/game/info/stocks",
+          `${URL}/game/info/stocks`,
           config
         );
         setStockPrice(stockPrice.data.data);

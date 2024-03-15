@@ -11,6 +11,7 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
   const [sellInsuccess, setSellInsuccess] = useState(false);
   const [sellErrorMsg, setSellErrorMsg] = useState("");
   const [buyErrorMsg, setBuyErrorMsg] = useState("");
+  const URL = process.env.API_URL;
 
   useEffect(() => {
     if (buySucces) {
@@ -60,7 +61,7 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
       try {
         const config = { headers: { Authorization: `Bearer ${token}` } };
         const response = await axios.post(
-          "http://localhost:8080/game/buy-stock",
+          `${URL}/game/buy-stock`,
           {
             stock: name,
             amount: parseInt(inputValue),
@@ -87,7 +88,7 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
       try {
         const config = { headers: { Authorization: `Bearer ${token}` } };
         const response = await axios.post(
-          "http://localhost:8080/game/sell-stock",
+          `${URL}/game/sell-stock`,
           {
             stock: name,
             amount: parseInt(inputValue),

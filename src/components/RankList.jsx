@@ -30,7 +30,7 @@ const RankList = () => {
           },
         };
 
-        const rankList = await axios.get("http://localhost:8080/game/info/leaderboard",config);
+        const rankList = await axios.get(`${URL}/game/info/leaderboard`,config);
         console.log(rankList.data.data);
         setTop(rankList.data.data.slice(0,3));
         setRanks(rankList.data.data.slice(3));

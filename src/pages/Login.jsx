@@ -9,6 +9,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loginErr, setLoginErr] = useState(false);
   const [loading, setLoading] = useState(false);
+  const URL = process.env.API_URL;
 
 
   const handleLogin = async (e) => {
@@ -16,7 +17,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:8080/auth/login", {
+      const response = await axios.post(`${URL}/auth/login`, {
         email:teamCode,
         password:password,
       });
