@@ -14,10 +14,10 @@ const News = () => {
 
   const handlePortfolio = () => {
     navigate("/portfolio");
-  }
+  };
   const handleLeaderboard = () => {
     navigate("/leaderboard");
-  }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,6 +32,7 @@ const News = () => {
           config
         );
         setNews(news.data.data);
+        // console.log(news.data.data);
         const funds = await axios.get(
           `${URL}/game/info/balance`,
           config
@@ -78,7 +79,7 @@ const News = () => {
             View Leaderboard
           </button>
         </div>
-        <div className="row1 flex flex-col md:grid md:grid-cols-2 ">
+        <div className="row1 flex flex-col md:grid-cols-2 ">
           {wordArr.map((word, index) => {
             const stockItem = stock.find((item) => item.id === word);
             if (stockItem) {
@@ -104,4 +105,3 @@ const News = () => {
 };
 
 export default News;
-

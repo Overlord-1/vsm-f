@@ -78,7 +78,6 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
         console.error("Error buying stock", error);
         setBuyInsuccess(true);
         setBuyErrorMsg("You do not have enough funds to buy");
-
       }
     }
   };

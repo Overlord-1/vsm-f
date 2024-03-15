@@ -1,6 +1,7 @@
 import React from "react";
 
 const Card = ({ name, avg, quantity}) => {
+  
   // let color = profit > 0 ? "#24FF00" : "#FF4545";
   let color = '#24FF00'
   // let poss = ["text-[#24FF00]","text-[#FF4545]"]
@@ -15,7 +16,7 @@ const Card = ({ name, avg, quantity}) => {
       </div>
       <div className="secondRow flex justify-between">
         <div className="stockName text-3xl mt-2 font-bold">{name}</div>
-        <div className={`stockName text-3xl mt-2 text-[${color}]`}>
+        <div className={`stockName text-2xl mt-2 text-white font-bold`}>
           {(quantity*avg).toFixed(2)}
         </div>
       </div>
@@ -28,6 +29,7 @@ const Card = ({ name, avg, quantity}) => {
           <div className="opacity-70">LTP:</div>
           <div className="opacity-50 px-2">{quantity*avg}</div>
         </div> */}
+        
       </div>
     </div>
   );

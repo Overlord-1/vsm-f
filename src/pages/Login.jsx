@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import { io } from "socket.io-client";
 
 const Login = () => {
@@ -30,16 +30,15 @@ const Login = () => {
     } catch (error) {
       console.error("Login Failed:", error.response?.data);
       setLoginErr(true);
-      
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="main flex mx-auto items-center justify-center h-screen flex-col bg-gradient-to-b from-slate-700 to-slate-950">
+    <div className="flex mx-auto items-center justify-center h-screen flex-col bg-gradient-to-b from-slate-700 to-slate-950">
       <div className="flex mx-auto items-center justify-center md:justify-center h-screen flex-col">
-        <h1 className="text-6xl mb-7 mainText font-bold uppercase">VSM 2024</h1>
+        <h1 className="text-6xl mb-7 font-bold uppercase">VSM 2024</h1>
         <form
           className="flex flex-col justify-center items-center"
           onSubmit={handleLogin}
@@ -60,7 +59,7 @@ const Login = () => {
           />
           <button
             type="submit"
-            className={`transition ease-in-out delay-150 bg-[#6cff739e] text-black hover:-translate-y-1 active:scale-110 active:bg-indigo-500 duration-300 w-[150px]  p-5 rounded-xl ${
+            className={`transition ease-in-out delay-150 bg-[#6cff739e] text-black duration-300 w-[150px]  p-5 rounded-xl ${
               loading ? "cursor-not-allowed opacity-50" : ""
             }`}
             disabled={loading}

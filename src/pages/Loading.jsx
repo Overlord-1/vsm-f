@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import Logo from "../assets/vsmLogo.png"; 
+import Logo from "../assets/vsmLogo.png";
 import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 
@@ -8,7 +8,7 @@ const Loading = () => {
   const [redirect, setRedirect] = useState(false);
   const token = localStorage.getItem("authToken");
   const [timeRemaining, setTimeRemaining] = useState(getTimeRemaining());
-  let resetVal = 1000;  // value used to call useEffect every 1 second
+  let resetVal = 1000; // value used to call useEffect every 1 second
   const navigate = useNavigate();
   const URL = process.env.API_URL;
  
@@ -19,34 +19,24 @@ const Loading = () => {
       transportOptions: {
         polling: {
           extraHeaders: {
-            'Authorization': `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
           },
         },
       },
     });
 
-    socket.on('connect', () => {
-      console.log('Connected to server');
-    });
+    socket.on("connect", () => {
+      console.log("Connected to server");
+      socket.on("game:stage:TRADING_STAGE", () => {
+        console.log("Market is open");
+        setRedirect("/news");
+      });
 
-    socket.on('game:stage:TRADING_STAGE', () => {
-      console.log("Market is open");
-      setRedirect("/news");
+      socket.on("game:stage:CALCULATION_STAGE", () => {
+        console.log("Calculation stage");
+        setRedirect("/calcround");
+      });
     });
-
-    socket.on('game:stage:CALCULATION_STAGE', () => {
-      console.log("Calculation stage");
-      setRedirect("/calcround");
-    });
-
-    socket.on('game:round', () => {
-      console.log("New round started");
-      setRedirect("/leaderboard");
-    });
-
-    return () => {
-      socket.disconnect();
-    };
   }, [token]);
 
   useEffect(() => {
@@ -54,7 +44,11 @@ const Loading = () => {
       const remaining = getTimeRemaining();
       setTimeRemaining(remaining);
       console.log(remaining);
-      if (remaining.hours === '00' && remaining.minutes === '00' && remaining.seconds === '00') {
+      if (
+        remaining.hours === "00" &&
+        remaining.minutes === "00" &&
+        remaining.seconds === "00"
+      ) {
         clearInterval(intervalId);
         // navigate("/news");
         setRedirect(true);
@@ -65,7 +59,7 @@ const Loading = () => {
     return () => clearInterval(intervalId);
   }, [resetVal]);
 
-  // there are two navigators useNavigate and the normal Navigate 
+  // there are two navigators useNavigate and the normal Navigate
   // using either of them breaks the app so dont touch the below code
 
   useEffect(() => {
@@ -96,9 +90,22 @@ const Loading = () => {
   return (
     <>
       {redirect && <Navigate to="/news" />}
-      <div className="flex flex-col w-full items-center justify-center gap-10 text-[#6cff73]" style={{ textAlign: "center", marginTop: "50vh", transform: "translateY(-50%)" }}>
-      <div className="text-3xl">⚠️ Market is closed</div>
-      <img src={Logo} style={{ animation: "spin 2s linear infinite" }} width="100" height="100" alt="Logo" />
+      <div
+        className="flex flex-col w-full items-center justify-center gap-10 text-[#6cff73]"
+        style={{
+          textAlign: "center",
+          marginTop: "50vh",
+          transform: "translateY(-50%)",
+        }}
+      >
+        <div className="text-3xl">⚠️ Market is closed</div>
+        <img
+          src={Logo}
+          style={{ animation: "spin 2s linear infinite" }}
+          width="100"
+          height="100"
+          alt="Logo"
+        />
         <div className="text-3xl" style={{ marginTop: "20px" }}>
           <span>{timeRemaining.hours}:</span>
           <span>{timeRemaining.minutes}:</span>
