@@ -29,7 +29,7 @@ const Loading = () => {
       console.log("Connected to server");
       socket.on("game:stage:TRADING_STAGE", () => {
         console.log("Market is open");
-        setRedirect("/news");
+        navigate("/news");
       });
 
       socket.on("game:stage:CALCULATION_STAGE", () => {
