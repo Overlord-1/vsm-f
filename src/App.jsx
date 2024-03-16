@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router'
 import Loading from './pages/Loading'
 import CalcRound from './pages/CalcRound'
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 
 
@@ -27,6 +28,7 @@ const App = () => {
       <Route path='/calcround' element= {<CalcRound />}/>
     </Routes>
     <Analytics />
+    <SpeedInsights />
     </>
   )
   
