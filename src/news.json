@@ -1,0 +1,156 @@
+{
+    "newsData": [
+      [
+        {
+          "news": "NI announces a major breakthrough in nanomaterials, promising to revolutionize multiple industries.",
+          "forInsider": false
+        },
+        {
+          "news": "Rumors swirl about a potential partnership with a leading aerospace company for next-gen spacecraft materials.",
+          "forInsider": false
+        },
+        {
+          "news": "CSS unveils a cutting-edge cybersecurity platform that utilizes machine learning to proactively detect and prevent cyber threats.",
+          "forInsider": false
+        },
+        {
+          "news": "Speculations arise about CSS's potential involvement in a high-profile cyber espionage case, triggering investigations by regulatory authorities.",
+          "forInsider": false
+        },
+        {
+          "news": "AID unveils an advanced artificial intelligence algorithm capable of human-level decision-making, sparking excitement in the tech community.",
+          "forInsider": false
+        },
+        {
+          "news": "Speculations arise about potential AI ethics violations and privacy concerns surrounding AID's new algorithm.",
+          "forInsider": false
+        },
+        {
+          "news": "QTI achieves a major breakthrough in quantum computing, surpassing classical computing capabilities for the first time.",
+          "forInsider": false
+        },
+        {
+          "news": "Rumors circulate regarding a rival company's attempt to poach QTI's top quantum scientists, raising concerns about talent retention.",
+          "forInsider": false
+        }
+      ],
+      [
+        {
+          "news": "DEI Receives Criticism for Lack of Transparency in Supply Chain Practices.",
+          "forInsider": false
+        },
+        {
+          "news": "Though they are performing better than their previous quarter, Vows Improvement.",
+          "forInsider": false
+        },
+        
+        {
+          "news": "FHF Invests Heavily in R&D for Sustainable Farming Methods, Pledges Commitment to Environmental Stewardship.",
+          "forInsider": false
+        },
+        { "news": "Trusted investors of FHF resign.", "forInsider": false },
+        {
+          "news": "TTB previous product failed to fare well in the market. They have recently announced Exciting New Product Lineup, Promising Unparalleled Taste Experience.",
+          "forInsider": false
+        },
+        {
+          "news": "TTB is seeking a huge round of investment. For opening more outlets and online expansion.",
+          "forInsider": false
+        }
+      ],
+      [
+        {
+          "news": "PPL is being held Under Investigation for Alleged Violations in the Land Acquisition Process.",
+          "forInsider": false
+        },
+        {
+          "news": "PPL has recently announced Ambitious Expansion Plans with Launch of Mega Project in Prime Location.",
+          "forInsider": false
+        },
+        {
+          "news": "UEI Faces Challenges with Delayed Project Timelines.",
+          "forInsider": false
+        },
+        {
+          "news": "They have invested in revitalizing neighborhoods, and aim to announce community living.",
+          "forInsider": false
+        },
+        {
+          "news": "MRC Receives Prestigious Award for progressing their Development Practices, though recently they failed to commit with their Green Initiatives.",
+          "forInsider": false
+        },
+        {
+          "news": "MRC faces backlash as tenants accuse the company of neglecting maintenance issues across its residential properties, sparking concerns about tenant welfare.",
+          "forInsider": false
+        }
+      ],
+      [
+        {
+          "news": "ODI hints at a potential breakthrough in electric vehicle (EV) technology.",
+          "forInsider": false
+        },
+        {
+          "news": "Their upcoming innovation could redefine the landscape of sustainable transportation, boasting an impressive 800+ mile range on a single charge and remarkable charging speeds.",
+          "forInsider": false
+        },
+        {
+          "news": "TSM is set to unveil an electric sports car with a realistic 400+ mile range on a single charge and remarkable charging speeds.",
+          "forInsider": false
+        },
+        {
+          "news": "TSM focuses on proven and feasible advancements, in contrast to ODI's ambitious claims.",
+          "forInsider": false
+        },
+        {
+          "news": "ATI faces a significant setback due to the global chip shortage, causing substantial production delays.",
+          "forInsider": false
+        },
+        {
+          "news": "Rumors circulate about ATI engaging in talks with L-vidia, a leading chip supplier, to address potential supply chain issues.",
+          "forInsider": false
+        },
+        {
+          "news": "QDS is upcoming with a groundbreaking powerful electric SUV. Renowned for sleek designs and its features (1000 miles range on a single charge and less charging time).",
+          "forInsider": false
+        },
+        {
+          "news": "Questions raised regarding safety concerns over its fast-charging technology, raising doubts about its reliability and potential risks for consumers.",
+          "forInsider": false
+        }
+      ],
+      [
+        {
+          "news": "OPS Dedicated to advancing cancer research, OPS hints at a potential breakthrough that could reshape cancer treatment.",
+          "forInsider": false
+        },
+        {
+          "news": "Despite promising results, the company has gained a reputation for consistently falling short on its commitments.",
+          "forInsider": false
+        },
+        {
+          "news": "VCI (VitalCure Innovations) known for impactful medical solutions, prepares to introduce a novel approach to cancer therapy.",
+          "forInsider": false
+        },
+        {
+          "news": "While OPS intrigues with elusive claims, VCI remains committed to delivering tangible advancements.",
+          "forInsider": false
+        },
+        {
+          "news": "QHS (QuantumHealth Solutions) hints at a breakthrough in non-invasive diagnostics, showcasing promising results.",
+          "forInsider": false
+        },
+        {
+          "news": "However, occasional delays have raised skepticism about its commitment consistency.",
+          "forInsider": false
+        },
+        {
+          "news": "GBI (GeniSys BioInnovations), a leader in synthetic biology, gears up to introduce groundbreaking gene-editing technology.",
+          "forInsider": false
+        },
+        {
+          "news": "Renowned for timely breakthroughs, GBI remains consistent in exceeding expectations.",
+          "forInsider": false
+        }
+      ]
+    ]
+  }

@@ -1,25 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import NewsCard from "../components/NewsCard";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 // import { io } from 'socket.io-client';
 
 const News = () => {
-  const token = localStorage.getItem("authToken");
-  const [funds, setFunds] = useState(0);
-  const [news, setNews] = useState([]);
-  const [stock, setStockPrice] = useState([]);
-  const navigate = useNavigate();
-  const URL  = process.env.REACT_APP_API_URL;
-
-  const handlePortfolio = () => {
-    navigate("/portfolio");
-  };
-  const handleLeaderboard = () => {
-    navigate("/leaderboard");
-  };
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     const fetchData = async () => {
       try {
         const config = {
@@ -32,7 +18,7 @@ const News = () => {
           config
         );
         setNews(news.data.data);
-        // console.log(news.data.data);
+        console.log(news.data.data);
         const funds = await axios.get(
           `${URL}/game/info/balance`,
           config
@@ -48,8 +34,23 @@ const News = () => {
       }
     };
     fetchData();
-  }, [funds, token]);
+  },[]);
 
+  const token = localStorage.getItem("authToken");
+  const [funds, setFunds] = useState(0);
+  const [news, setNews] = useState([]);
+  const [stock, setStockPrice] = useState([]);
+  const navigate = useNavigate();
+  const URL  = process.env.REACT_APP_API_URL;
+
+  const handlePortfolio = () => {
+    navigate("/portfolio");
+  };
+  const handleLeaderboard = () => {
+    navigate("/leaderboard");
+  };
+
+  
   const handleFundsUpdate = (newFunds) => {
     setFunds(newFunds);
   };
@@ -58,6 +59,7 @@ const News = () => {
     { length: Math.ceil(news.length / 2) },
     (_, i) => news[i * 2].split(" ")[0]
   );
+   console.log(wordArr);
 
   return (
     <>

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import PLtracker from "../components/PLtracker";
-import Button from "../components/Button";
 import MiddleRow from "../components/MiddleRow";
 import Card from "../components/Card";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Portfolio = () => {
   const [portfolio, setPortfolio] = useState([]);
@@ -31,50 +31,22 @@ const Portfolio = () => {
     fetchData();
   }, []);
 
-  // const data = [
-  //   {
-  //     name: "HDFC",
-  //     avg: 93.87,
-  //     quantity: 3,
-  //     LTP: 81.25,
-  //     profit: 434,
-  //   },
-  //   {
-  //     name: "ONGC",
-  //     avg: 93.87,
-  //     quantity: 3,
-  //     LTP: 81.25,
-  //     profit: 434,
-  //   },
-  //   {
-  //     name: "JIOFIN",
-  //     avg: 93.87,
-  //     quantity: 14,
-  //     LTP: 81.25,
-  //     profit: 434,
-  //   },
-  //   {
-  //     name: "HDFC",
-  //     avg: 93.87,
-  //     quantity: 3,
-  //     LTP: 81.25,
-  //     profit: 434,
-  //   },
-  //   {
-  //     name: "INFY",
-  //     avg: 1293.87,
-  //     quantity: 3,
-  //     LTP: 81.25,
-  //     profit: -151,
-  //   }
-
-  // ];
+  const navigate = useNavigate();
+  const handleClick = () =>{
+    navigate('/news')
+  }
   const total = portfolio.reduce((acc, cur) => acc + cur.value, 0);
   return (
-    <>
+    <div className="flex flex-col">
       <Header text={"Portfolio"} />
       <PLtracker invested={total} />
-      <Button text={"Back to news"} txtColor={"#ffffff"} bgColor={"#343434"} />
+      <button
+            className="text-[#6cff73] font-bold bg-[#1E1F26] p-3 rounded-lg px-3 m-5 max-w-[1200px] mx-auto"
+            onClick={handleClick}
+          >
+            Back to News
+          </button>
+
       <MiddleRow />
       {portfolio.map((parameter) => (
         <Card
@@ -84,7 +56,7 @@ const Portfolio = () => {
           quantity={parameter.volume}
         />
       ))}
-    </>
+    </div>
   );
 };
 
