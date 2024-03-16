@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import { Route, Routes } from 'react-router'
 import Loading from './pages/Loading'
 import CalcRound from './pages/CalcRound'
+import { Analytics } from "@vercel/analytics/react"
 
 
 
@@ -23,8 +24,9 @@ const App = () => {
       <Route path='/news' element= {<News />}/>
       <Route path='/portfolio' element= {<Portfolio />}/>
       <Route path='/loading' element= {<Loading />}/>
-      <Route path='/calc' element= {<CalcRound />}/>
+      <Route path='/calcround' element= {<CalcRound />}/>
     </Routes>
+    <Analytics />
     </>
   )
   

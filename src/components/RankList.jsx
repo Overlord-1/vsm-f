@@ -20,6 +20,7 @@ const RankList = () => {
   const colors = ["#FFD700", "#C0C0C0", "#CD7F32"];
   const [ranks,setRanks] = useState([]);
   const [top3,setTop] = useState([]);
+  const URL = process.env.REACT_APP_API_URL;
   useEffect(() => {
     const fetchData = async () => {
       try{
@@ -52,6 +53,7 @@ const RankList = () => {
         <Rank
           color={colors[index]}
           topRank={true}
+          key={index}
           rank={parameter.rank}
           name={parameter.name}
           score={parameter.wealth}
@@ -62,6 +64,7 @@ const RankList = () => {
         <Rank
           color={"#686870"}
           topRank={false}
+          key={parameter.name}
           rank={parameter.rank}
           name={parameter.name}
           score={parameter.wealth}

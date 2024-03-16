@@ -9,6 +9,7 @@ import axios from "axios";
 const Portfolio = () => {
   const [portfolio, setPortfolio] = useState([]);
   const token = localStorage.getItem("authToken");
+  const URL = process.env.REACT_APP_API_URL;
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -18,7 +19,7 @@ const Portfolio = () => {
           },
         };
         const portfolio = await axios.get(
-          "https://vsm-server-7rgs.onrender.com/game/info/portfolio",
+          `${URL}/game/info/portfolio`,
           config
         );
         console.log(portfolio.data.data.portfolio);
@@ -28,7 +29,7 @@ const Portfolio = () => {
       }
     };
     fetchData();
-  }, [token]);
+  }, []);
 
   // const data = [
   //   {
@@ -78,6 +79,7 @@ const Portfolio = () => {
       {portfolio.map((parameter) => (
         <Card
           name={parameter.name}
+          key={parameter.name}
           avg={parameter.value / parameter.volume}
           quantity={parameter.volume}
         />

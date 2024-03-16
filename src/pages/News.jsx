@@ -10,7 +10,7 @@ const News = () => {
   const [news, setNews] = useState([]);
   const [stock, setStockPrice] = useState([]);
   const navigate = useNavigate();
-  const URL  = process.env.API_URL;
+  const URL  = process.env.REACT_APP_API_URL;
 
   const handlePortfolio = () => {
     navigate("/portfolio");

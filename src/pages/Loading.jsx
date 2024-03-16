@@ -8,9 +8,9 @@ const Loading = () => {
   const [redirect, setRedirect] = useState(false);
   const token = localStorage.getItem("authToken");
   const [timeRemaining, setTimeRemaining] = useState(getTimeRemaining());
-  let resetVal = 1000; // value used to call useEffect every 1 second
+  // let resetVal = 1000; // value used to call useEffect every 1 second
   const navigate = useNavigate();
-  const URL = process.env.API_URL;
+  const URL = process.env.REACT_APP_API_URL;
  
 
   useEffect(() => {
@@ -34,37 +34,42 @@ const Loading = () => {
 
       socket.on("game:stage:CALCULATION_STAGE", () => {
         console.log("Calculation stage");
-        setRedirect("/calcround");
+        navigate("/calcround");
+      });
+      socket.on("game:end", () => {
+        console.log("Game ended");
+        navigate("/calcround");
       });
     });
   }, [token]);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      const remaining = getTimeRemaining();
-      setTimeRemaining(remaining);
-      console.log(remaining);
-      if (
-        remaining.hours === "00" &&
-        remaining.minutes === "00" &&
-        remaining.seconds === "00"
-      ) {
-        clearInterval(intervalId);
-        // navigate("/news");
-        setRedirect(true);
-        console.log("Market is open");
-      }
-    }, resetVal);
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     const remaining = getTimeRemaining();
+  //     setTimeRemaining(remaining);
+  //     console.log(remaining);
+  //     if (
+  //       remaining.hours === "00" &&
+  //       remaining.minutes === "00" &&
+  //       remaining.seconds === "00"
+  //     ) {
+  //       clearInterval(intervalId);
+  //       // navigate("/news");
+  //       setRedirect(true);
+  //       console.log("Market is open");
+  //     }
+  //   }, resetVal);
 
-    return () => clearInterval(intervalId);
-  }, [resetVal]);
+  //   return () => clearInterval(intervalId);
+  // }, [resetVal]);
 
   // there are two navigators useNavigate and the normal Navigate
   // using either of them breaks the app so dont touch the below code
 
   useEffect(() => {
     if (redirect) {
-      navigate("/news");
+      navigate(redirect);
+      console.log(`Redirecting to ${redirect}`);
     }
   }, [redirect, navigate]);
 
@@ -107,9 +112,9 @@ const Loading = () => {
           alt="Logo"
         />
         <div className="text-3xl" style={{ marginTop: "20px" }}>
-          <span>{timeRemaining.hours}:</span>
+          {/* <span>{timeRemaining.hours}:</span>
           <span>{timeRemaining.minutes}:</span>
-          <span>{timeRemaining.seconds}</span>
+          <span>{timeRemaining.seconds}</span> */}
         </div>
       </div>
       <style>
