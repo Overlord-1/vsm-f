@@ -38,7 +38,7 @@ const Loading = () => {
       });
       socket.on("game:end", () => {
         console.log("Game ended");
-        navigate("/calcround");
+        navigate("/leaderboard");
       });
     });
   }, [token]);
