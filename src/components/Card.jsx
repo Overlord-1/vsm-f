@@ -1,7 +1,9 @@
 import React from "react";
 
 const Card = ({ name, avg, quantity}) => {
-  
+  if (avg === NaN || avg === Infinity || avg === -Infinity) {
+    avg = 0
+  }
   // let color = profit > 0 ? "#24FF00" : "#FF4545";
   // let color = '#24FF00'
   // let poss = ["text-[#24FF00]","text-[#FF4545]"]
@@ -11,7 +13,7 @@ const Card = ({ name, avg, quantity}) => {
       <div className="firstRow text-white flex">
         <div className="quantity flex">
           <div className="opacity-80">Qty:</div>
-          <div className="opacity-60 px-1">{quantity}</div>
+          <div className="opacity-60 px-1">{quantity.toFixed(2)}</div>
         </div>
       </div>
       <div className="secondRow flex justify-between">
@@ -23,7 +25,7 @@ const Card = ({ name, avg, quantity}) => {
       <div className="third mt-3 text-white flex justify-between">
         <div className="quantity flex">
           <div className="opacity-80">Avg:</div>
-          <div className="opacity-60 px-2">{avg}</div>
+          <div className="opacity-60 px-2">{avg.toFixed(2)}</div>
         </div>
         {/* <div className="LTP flex">
           <div className="opacity-70">LTP:</div>
