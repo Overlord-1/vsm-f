@@ -35,7 +35,7 @@ const Portfolio = () => {
   const handleClick = () =>{
     navigate('/news')
   }
-  const total = portfolio.reduce((acc, cur) => acc + cur.value, 0);
+  const total = portfolio.reduce((acc, cur) => acc + (cur.value * cur.volume), 0);
   return (
     <div className="flex flex-col">
       <Header text={"Portfolio"} />
@@ -52,7 +52,7 @@ const Portfolio = () => {
         <Card
           name={parameter.name}
           key={parameter.name}
-          avg={parameter.value / parameter.volume}
+          avg={parameter.value}
           quantity={parameter.volume}
         />
       ))}

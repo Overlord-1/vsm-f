@@ -19,12 +19,12 @@ const Card = ({ name, avg, quantity}) => {
       <div className="secondRow flex justify-between">
         <div className="stockName text-2xl mt-2 font-bold">{name}</div>
         <div className={`stockName text-2xl mt-2 text-[#6cff73] font-mono`}>
-          {(quantity*avg).toLocaleString("en-IN")}
+          ₹ {(quantity*avg).toLocaleString("en-IN")}
         </div>
       </div>
       <div className="third mt-3 text-white flex justify-between">
         <div className="quantity flex">
-          <div className="opacity-80">Avg:</div>
+          <div className="opacity-80">Price:</div>
           <div className="opacity-60 px-2">{avg.toFixed(2)}</div>
         </div>
         {/* <div className="LTP flex">

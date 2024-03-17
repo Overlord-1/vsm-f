@@ -59,7 +59,7 @@ const Login = () => {
           />
           <button
             type="submit"
-            className={`transition ease-in-out delay-150 bg-[#6cff739e] text-black duration-300 w-[150px]  p-5 rounded-xl ${
+            className={`transition m-3 ease-in-out delay-150 bg-[#6cff739e] text-black duration-300 w-[150px]  p-5 rounded-xl ${
               loading ? "cursor-not-allowed opacity-50" : ""
             }`}
             disabled={loading}

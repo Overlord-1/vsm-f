@@ -36,9 +36,9 @@ const Rank = ({ color, topRank, rank, name, score }) => {
       </div>
 
       {topRank ? (
-        <div className="score mr-5 font-bold text-black">{score}</div>
+        <div className="score mr-5 font-bold text-black">{score.toFixed(2)}</div>
       ) : (
-        <div className="score mr-5 font-bold text-white">{score}</div>
+        <div className="score mr-5 font-bold text-white">{score.toFixed(2)}</div>
       )}
     </div>
   );
