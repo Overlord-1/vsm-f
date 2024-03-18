@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 // import { io } from 'socket.io-client';
 
 const News = () => {
-  useLayoutEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const config = {
