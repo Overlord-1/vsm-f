@@ -19,7 +19,7 @@ const Card = ({ name, avg, quantity}) => {
       <div className="secondRow flex justify-between">
         <div className="stockName text-2xl mt-2 font-bold">{name}</div>
         <div className={`stockName text-2xl mt-2 text-[#6cff73] font-mono`}>
-          ₹ {(quantity*avg).toLocaleString("en-IN")}
+          ₹ {(quantity*avg).toFixed(0).toLocaleString("en-IN")}
         </div>
       </div>
       <div className="third mt-3 text-white flex justify-between">
