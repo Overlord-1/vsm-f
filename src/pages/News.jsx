@@ -65,7 +65,7 @@ const News = () => {
     <>
       <div className="max-w-[1240px] mx-auto flex flex-col relative">
         <h1 className="text-[#6cff73] mx-auto rounded-lg font-bold bg-[#1E1F26] p-4 text-2xl my-5 px-5 md:text-4xl sticky top-0 z-10">
-          Remaining Funds = ₹ {funds}
+          Remaining Funds = ₹ {funds.toFixed(2)}
         </h1>
         <div className="flex">
           <button

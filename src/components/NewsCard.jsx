@@ -171,7 +171,7 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
               <div className="text-3xl font-mono">₹</div>
               <div className="text-3xl font-mono">
                 {" "}
-                {inputValue * stockprice}
+                {(inputValue * stockprice).toFixed(2)}
               </div>
             </div>
           </div>
