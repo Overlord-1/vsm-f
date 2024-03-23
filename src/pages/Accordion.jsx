@@ -10,9 +10,9 @@ const Accordion = ({ i, expanded, setExpanded, title }) => {
       <motion.div
         initial={false}
         animate={{
-          backgroundColor: isOpen ? "#1e1f26" : "#1e1f26",
+          backgroundColor: isOpen ? "#6cff73" : "#1e1f26",
         }}
-        className='bg-green-500 w-full text-white text-2xl rounded-lg mb-2'
+        className={`bg-green-500 w-full font-bold ${isOpen?"text-black":"text-white"} text-2xl rounded-lg mb-2`}
         onClick={() => setExpanded(isOpen ? false : i)}
         style={{
           display: "flex",
@@ -39,9 +39,14 @@ const Accordion = ({ i, expanded, setExpanded, title }) => {
             style={{
               backgroundColor: "transparent",
               padding: "0 2rem",
+              display: "flex",
+              flexDirection: "column",
             }}
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur velit possimus doloremque nesciunt non, libero perferendis, culpa architecto molestias ipsum vitae dolorum saepe, cum fugit dolorem repellendus nemo maxime voluptates.
+            <button
+              className="block text-black font-bold bg-[#6cff73] p-3 rounded-lg px-10 m-3"
+            >USE</button>
           </motion.section>
         )}
       </AnimatePresence>

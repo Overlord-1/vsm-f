@@ -114,7 +114,7 @@ const News = () => {
         <div className="newsPage">
         <Header text={"VSM"} />
         
-        <h1 className="text-[#6cff73] mx-auto rounded-lg font-bold bg-[#1E1F26] p-4 text-2xl my-5 px-5 md:text-4xl sm:text-2xl sticky top-0 z-10">
+        <h1 className="text-[#6cff73] max-w-[90%] text-center mx-auto rounded-lg font-bold bg-[#1E1F26] p-4 text-2xl my-5 px-5 md:text-4xl sm:text-2xl ">
           Funds = ₹ {funds.toFixed(2)}
         </h1>
 
