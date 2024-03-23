@@ -10,14 +10,8 @@ const Leaderboard = () => {
   };
   return (
     <>
-      <div className="max-w-[1240px] mx-auto flex flex-col">
+      <div className="max-w-[1240px] mx-auto flex flex-col max-h-screen">
         <LeaderboardHeader />
-        <button
-            className="text-[#6cff73] font-bold bg-[#1E1F26] p-3 rounded-lg px-3 m-5 max-w-[1200px] mx-auto"
-            onClick={handleClick}
-          >
-            Back to News
-          </button>
         <RankList />
       </div>
     </>
