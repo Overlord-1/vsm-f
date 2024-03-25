@@ -14,6 +14,7 @@ import { Carousel } from "react-responsive-carousel";
 import { motion } from "framer-motion"
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
 import Header from "../components/Header";
+import Timer from "../components/Timer";
 
 // import { io } from 'socket.io-client';
 
@@ -51,7 +52,7 @@ const News = () => {
 
   const token = localStorage.getItem("authToken");
   const [funds, setFunds] = useState(100000);
-  const [pageState, setPageState] = useState(0); 
+  const [pageState, setPageState] = useState(0);
   const [news, setNews] = useState([
     "AAPL is going to the moon",
     "AAPL is going to fallellllell",
@@ -92,7 +93,7 @@ const News = () => {
     else if (e.target.alt === "cards") {
       setPageState(2);
     }
-     else if (e.target.alt === "leaderboard") {
+    else if (e.target.alt === "leaderboard") {
       setPageState(3);
     }
   }
@@ -108,94 +109,98 @@ const News = () => {
     <>
 
       <div className="max-w-[1240px] h-screen mx-auto flex flex-col relative">
-        
-        
-        { pageState === 0 &&
-        <div className="newsPage">
-        <Header text={"VSM"} />
-        
-        <h1 className="text-[#6cff73] max-w-[90%] text-center mx-auto rounded-lg font-bold bg-[#1E1F26] p-4 text-2xl my-5 px-5 md:text-4xl sm:text-2xl ">
-          Funds = ₹ {funds.toFixed(2)}
-        </h1>
 
-        <div className="row1 flex flex-col md:grid-cols-2 ">
-          <Carousel showThumbs={false}>
-            {wordArr.map((word, index) => {
-              const stockItem = stock.find((item) => item.id === word);
-              if (stockItem) {
-                return (
-                  <NewsCard
-                    key={index}
-                    name={word}
-                    stockprice={stockItem.value}
-                    funds={funds}
-                    news1={news[index * 2]}
-                    news2={news[index * 2 + 1]}
-                    onFundsUpdate={handleFundsUpdate}
-                  />
-                );
-              } else {
-                return null;
-              }
-            })}
-          </Carousel>
-        </div>
-        </div>}
+
+        {pageState === 0 &&
+          <div className="newsPage">
+            <Header text={"VSM"} />
+
+            <h1 className="text-[#6cff73] max-w-[90%] text-center mx-auto rounded-lg font-bold bg-[#1E1F26] p-4 text-2xl my-5 px-5 md:text-4xl sm:text-2xl ">
+              Funds = ₹ {funds.toFixed(2)}
+            </h1>
+
+            <div className="row1 flex flex-col md:grid-cols-2 ">
+              <Carousel showThumbs={false}>
+                {wordArr.map((word, index) => {
+                  const stockItem = stock.find((item) => item.id === word);
+                  if (stockItem) {
+                    return (
+                      <NewsCard
+                        key={index}
+                        name={word}
+                        stockprice={stockItem.value}
+                        funds={funds}
+                        news1={news[index * 2]}
+                        news2={news[index * 2 + 1]}
+                        onFundsUpdate={handleFundsUpdate}
+                      />
+                    );
+                  } else {
+                    return null;
+                  }
+                })}
+              </Carousel>
+              <div className="fixed right-5 bottom-24">
+
+                <Timer />
+              </div>
+            </div>
+          </div>}
 
         {
-          pageState === 1 && 
-            
-            <Portfolio />
-          
+          pageState === 1 &&
+
+          <Portfolio />
+
         }
         {
-          pageState === 2 && 
-            
-            <PowerCard />
-          
+          pageState === 2 &&
+
+          <PowerCard />
+
         }
         {
-          pageState === 3 && 
-            
-            <Leaderboard />
-          
+          pageState === 3 &&
+
+          <Leaderboard />
+
         }
 
-        
+
 
 
 
         <div className="footer w-full bg-[#1e1f26] text-white flex px-5 justify-between fixed bottom-0  z-20 rounded-t-2xl">
-          <motion.div whileTap={{scale:0.4}} className={`${pageState === 0?"bg-[#6cff7379]":"bg-[#1e1f26]"} py-2 px-5 m-2 rounded-3xl`}>
+          <motion.div whileTap={{ scale: 0.4 }} className={`${pageState === 0 ? "bg-[#6cff7379]" : "bg-[#1e1f26]"} py-2 px-5 m-2 rounded-3xl`}>
             <img
               src={logo}
               alt="home"
               className="w-[40px]"
-              onClick={(e)=>handleFooterClick(e)}
+              onClick={(e) => handleFooterClick(e)}
             />
           </motion.div>
-          <motion.div whileTap={{scale:0.5}}  className={`${pageState === 1?"bg-[#111]":"bg-[#1e1f26]"} py-2 px-5 m-2 rounded-3xl`}>
+          <motion.div whileTap={{ scale: 0.5 }} className={`${pageState === 1 ? "bg-[#111]" : "bg-[#1e1f26]"} py-2 px-5 m-2 rounded-3xl`}>
             <img
               src={portfolio}
               alt="portfolio"
               className="w-[40px]"
-              onClick={(e)=>handleFooterClick(e)}
+              onClick={(e) => handleFooterClick(e)}
             />
           </motion.div>
-          <motion.div whileTap={{scale:0.5}} className={`${pageState === 2?"bg-[#111]":"bg-[#1e1f26]"} py-2 px-5 m-2 rounded-3xl`}>
+          <motion.div whileTap={{ scale: 0.5 }} className={`${pageState === 2 ? "bg-[#111]" : "bg-[#1e1f26]"} py-2 px-5 m-2 rounded-3xl`}>
             <img
               src={cards}
               alt="cards"
               className="w-[40px]"
-              onClick={(e)=>handleFooterClick(e)}
+              onClick={(e) => handleFooterClick(e)}
             />
           </motion.div>
-          <div className={`${pageState === 3?"bg-[#111]":"bg-[#1e1f26]"} py-2 px-5 m-2 rounded-3xl`}>
+          <div className={`${pageState === 3 ? "bg-[#111]" : "bg-[#1e1f26]"} py-2 px-5 m-2 rounded-3xl`}>
             <img
               src={leaderboard}
               alt="leaderboard"
               className="w-[40px]"
-              onClick={(e)=>handleFooterClick(e)}
+              onClick={(e) => handleFooterClick(e)}
             />
           </div>
         </div>
