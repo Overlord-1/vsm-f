@@ -2,6 +2,7 @@ import React from "react";
 import LeaderboardHeader from "../components/LeaderboardHeader";
 import RankList from "../components/RankList";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
 
 const Leaderboard = () => {
   const navigate = useNavigate();
@@ -10,10 +11,8 @@ const Leaderboard = () => {
   };
   return (
     <>
-      <div className="max-w-[1240px] mx-auto flex flex-col max-h-screen">
-        <LeaderboardHeader />
-        <RankList />
-      </div>
+      <Header text={"Leaderboard 🏅"} />
+      <RankList />
     </>
   );
 };

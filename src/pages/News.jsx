@@ -161,6 +161,8 @@ const News = () => {
           
         }
 
+        
+
 
 
         <div className="footer w-full bg-[#1e1f26] text-white flex px-5 justify-between fixed bottom-0  z-20 rounded-t-2xl">
