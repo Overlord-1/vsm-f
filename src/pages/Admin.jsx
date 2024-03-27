@@ -6,19 +6,19 @@ const Admin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
+  const token = localStorage.getItem('authTokenAdmin');
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/auth/admin-login', {
-        email,
-        password
+      const response = await axios.post('http://localhost:8080/auth/login-admin', {
+        "email": email,
+        "password": password
       });
-      if (response.status === 200) {
-        setLoggedIn(true);
-      } else {
-        // handle error
-        console.error('Login failed');
-      }
+
+      const token = response.data.data.token;
+      console.log("Login Successful! Token:", token);
+      localStorage.setItem("authTokenAdmin", token);
+      setLoggedIn(true);
     } catch (error) {
       // handle error
       console.error('Login failed:', error);
@@ -26,8 +26,13 @@ const Admin = () => {
   };
 
   const handleStartRound = async () => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    }
     try {
-      await axios.post('http://localhost:8080/admin/start-round');
+      await axios.post('http://localhost:8080/admin/start-round', {}, config);
       // handle success
       console.log('Round started successfully');
     } catch (error) {
@@ -37,8 +42,13 @@ const Admin = () => {
   };
 
   const handleStartGame = async () => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    }
     try {
-      await axios.post('http://localhost:8080/admin/start-game');
+      await axios.post('http://localhost:8080/admin/start-game', {}, config);
       // handle success
       console.log('Game started successfully');
     } catch (error) {

@@ -32,15 +32,15 @@ const Loading = () => {
         navigate("/news");
       });
 
-      socket.on("game:stage:CALCULATION_STAGE", () => {
-        console.log("Calculation stage");
-        navigate("/calcround");
-      });
-      socket.on("game:end", () => {
-        console.log("Game ended");
-        navigate("/leaderboard");
+      // socket.on("game:stage:CALCULATION_STAGE", () => {
+      //   console.log("Calculation stage");
+      //   navigate("/calcround");
+      // });
+      // socket.on("game:end", () => {
+      //   console.log("Game ended");
+      //   navigate("/leaderboard");
         
-      });
+      // });
     });
   }, [token]);
 

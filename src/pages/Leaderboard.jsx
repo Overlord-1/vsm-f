@@ -6,9 +6,9 @@ import Header from "../components/Header";
 
 const Leaderboard = () => {
   const navigate = useNavigate();
-  const handleClick = () => {
-    navigate("/news");
-  };
+  // const handleClick = () => {
+  //   navigate("/news");
+  // };
   return (
     <>
       <Header text={"Leaderboard 🏅"} />

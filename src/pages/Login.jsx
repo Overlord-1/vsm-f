@@ -10,6 +10,7 @@ const Login = () => {
   const [loginErr, setLoginErr] = useState(false);
   const [loading, setLoading] = useState(false);
   const URL = process.env.REACT_APP_API_URL;
+  // console.log(process.env.REACT_APP_API_URL);
 
 
   const handleLogin = async (e) => {

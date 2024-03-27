@@ -41,7 +41,7 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
     }
   }, [buySucces, sellSuccess, buyInsuccess, sellInsuccess]);
 
-  
+
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
     if (!isNaN(inputValue) && inputValue >= 0) {
@@ -115,14 +115,16 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
       <div className="card w-[80%] p-5 bg-[#1E1F26] mx-auto mt-auto rounded-xl flex flex-col justify-evenly mb-[-1rem]">
         <div className="row1 flex justify-between mt-3">
           <div className="name  text-3xl text-white font-bold">{name}</div>
-          <div className="name  text-3xl text-white">₹ {stockprice.toFixed(2)}</div>
+          <div className="name  text-3xl text-white">₹ {stockprice}</div>
         </div>
-        <div className="row2 flex justify-between  text-white mt-20">
-          <div className="ml-4">
-            <ul className="list-decimal mb-5">
-              <li>{news1}</li>
-              <li >{news2}</li>
-            </ul>
+        <div className="row2 flex justify-between text-white mt-20">
+          <div className="ml-2">
+            <div className="newsList">
+              <ul className="list-decimal mb-5">
+                <li>{news1}</li>
+                <li className="mt-3">{news2}</li>
+              </ul>
+            </div>
             <label htmlFor="textInput" className="text-xl opacity-50 mr-2 -ml-4 mt-4">
               Qty:
             </label>
