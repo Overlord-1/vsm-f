@@ -29,39 +29,56 @@ const News = () => {
   const [stock, setStockPrice] = useState([]);
   const navigate = useNavigate();
   const URL = process.env.REACT_APP_API_URL;
+  const [socket, setSocket] = useState(null);
+  const [connected, setConnected] = useState(false);
+
 
 
   useEffect(() => {
-
-    const socket = io(`${URL}`,{
-      transportOptions: {
-        polling: {
-          extraHeaders: {
-            Authorization: `Bearer ${token}`,
+    const connectSocket = () => {
+      const newSocket = io(`${URL}`, {
+        transportOptions: {
+          polling: {
+            extraHeaders: {
+              Authorization: `Bearer ${token}`,
+            },
           },
         },
-      },
-    });
+      });
 
-    socket.on("connect", () => {
-      console.log("Connected to server");
-      socket.on("game:stage:TRADING_STAGE", () => {
+      newSocket.on("connect", () => {
+        console.log("Connected to server");
+        setConnected(true);
+      });
+
+      newSocket.on("game:stage:TRADING_STAGE", () => {
         console.log("Market is open");
-        // navigate("/news");
         setPageState(0);
       });
 
-      socket.on("game:stage:CALCULATION_STAGE", () => {
+      newSocket.on("game:stage:CALCULATION_STAGE", () => {
         console.log("Calculation stage");
-        // navigate("/calcround");
         setPageState(4);
       });
-      socket.on("game:end", () => {
+
+      newSocket.on("game:end", () => {
         console.log("Game ended");
-        // navigate("/leaderboard");
-        
+        // Disconnect the socket when the game ends
+        newSocket.disconnect();
+        setConnected(false);
       });
-    });
+
+      setSocket(newSocket);
+    };
+
+    connectSocket();
+
+    // Cleanup function to disconnect the socket when the component unmounts
+    return () => {
+      if (socket) {
+        socket.disconnect();
+      }
+    };
   }, [token]);
   
 
