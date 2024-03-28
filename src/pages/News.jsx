@@ -30,57 +30,98 @@ const News = () => {
   const navigate = useNavigate();
   const URL = process.env.REACT_APP_API_URL;
   const [socket, setSocket] = useState(null);
+  const [round, setRound] = useState(0);
   const [connected, setConnected] = useState(false);
 
 
 
+  // useEffect(() => {
+  // const connectSocket = () => {
+  //   const newSocket = io(`${URL}`, {
+  //     transportOptions: {
+  //       polling: {
+  //         extraHeaders: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       },
+  //     },
+  //   });
+
+  //   newSocket.on("connect", () => {
+  //     console.log("Connected to server");
+  //     setConnected(true);
+  //   });
+
+  //   newSocket.on("game:stage:TRADING_STAGE", () => {
+  //     console.log("Market is open");
+  //     setPageState(0);
+  //   });
+
+  //   newSocket.on("game:stage:CALCULATION_STAGE", () => {
+  //     console.log("Calculation stage");
+  //     setPageState(4);
+  //   });
+
+  //   newSocket.on("game:end", () => {
+  //     console.log("Game ended");
+  //     // Disconnect the socket when the game ends
+  //     newSocket.disconnect();
+  //     setConnected(false);
+  //   });
+
+  //   setSocket(newSocket);
+  // };
+
+  // connectSocket();
+
+  // // Cleanup function to disconnect the socket when the component unmounts
+  // return () => {
+  //   if (socket) {
+  //     socket.disconnect();
+  //   }
+  // };
+
+
+  // }, [token]);
   useEffect(() => {
-    const connectSocket = () => {
-      const newSocket = io(`${URL}`, {
-        transportOptions: {
-          polling: {
-            extraHeaders: {
-              Authorization: `Bearer ${token}`,
-            },
+
+    const socket = io(`${URL}`, {
+      transportOptions: {
+        polling: {
+          extraHeaders: {
+            Authorization: `Bearer ${token}`,
           },
         },
-      });
+      },
+    });
 
-      newSocket.on("connect", () => {
-        console.log("Connected to server");
-        setConnected(true);
-      });
-
-      newSocket.on("game:stage:TRADING_STAGE", () => {
-        console.log("Market is open");
+    socket.on("connect", () => {
+      console.log("Connected to server");
+      socket.on("game:stage:TRADING_STAGE", (data) => {
+        // console.log(data);
+        console.log("Market is open", data);
+        setRound(round + 1);
+        // navigate("/news");
         setPageState(0);
       });
 
-      newSocket.on("game:stage:CALCULATION_STAGE", () => {
+      socket.on("game:stage:CALCULATION_STAGE", () => {
         console.log("Calculation stage");
+        // navigate("/calcround");
         setPageState(4);
       });
-
-      newSocket.on("game:end", () => {
+      socket.on("game:end", () => {
         console.log("Game ended");
         // Disconnect the socket when the game ends
-        newSocket.disconnect();
-        setConnected(false);
-      });
-
-      setSocket(newSocket);
-    };
-
-    connectSocket();
-
-    // Cleanup function to disconnect the socket when the component unmounts
-    return () => {
-      if (socket) {
         socket.disconnect();
-      }
-    };
+
+
+        // navigate("/leaderboard");
+
+      });
+    });
   }, [token]);
-  
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -104,10 +145,10 @@ const News = () => {
       {
         console.log("Error");
       }
-  }
+    }
 
-  fetchData();
-})
+    fetchData();
+  })
 
   useEffect(() => {
     const fetchData = async () => {
@@ -134,13 +175,16 @@ const News = () => {
           config
         );
         setStockPrice(stockPrice.data.data);
-        console.log(stockPrice.data.data);
+        // console.log(stockPrice.data.data);
       } catch {
         console.log("Error");
       }
     };
     fetchData();
-  },[]);
+  }, [token, round]);
+
+
+
 
   // [
   //   "AAPL is going to the moon",
@@ -233,7 +277,7 @@ const News = () => {
               </Carousel>
               <div className="fixed right-5 bottom-24">
 
-                <Timer />
+
               </div>
             </div>
           </div>}
@@ -262,6 +306,10 @@ const News = () => {
           <CalcRound />
 
         }
+        <div className="fixed right-3 bottom-24">
+          {/* <Timer /> */}
+
+        </div>
 
 
 

@@ -5,10 +5,10 @@ const Timer = () => {
  return (
     <CountdownCircleTimer
       isPlaying
-      duration={10}
+      duration={300}
       colors={['#6cff73', '#ff0000']}
       colorsTime={[15, 0]}
-      size={90}
+      size={70}
       strokeWidth={12}
       trailStrokeWidth={12}
       strokeLinecap="round"
