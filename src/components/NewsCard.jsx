@@ -41,6 +41,28 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
     }
   }, [buySucces, sellSuccess, buyInsuccess, sellInsuccess]);
 
+  const fetchBal = async () => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    try {
+      const funds = await axios.get(
+        `${URL}/game/info/balance`,
+        config
+      );
+
+      onFundsUpdate(funds.data.data.balance);
+      // console.log(funds.data.data.balance);
+    }
+
+    catch
+    {
+      console.log("Error");
+    }
+  }
 
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
@@ -71,7 +93,9 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
         );
         console.log("Buy successful", response.data);
         if (onFundsUpdate) {
-          onFundsUpdate(response.data.data.balance);
+          // console.log("balance = ",response);
+          // onFundsUpdate(response.data.data.balance);
+          fetchBal();
         }
         setBuySucces(true);
         setInputValue("");
@@ -97,7 +121,8 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
         );
         console.log("Sell successful", response.data);
         if (onFundsUpdate) {
-          onFundsUpdate(response.data.data.balance);
+          // console.log("balance = ",response.data.data);
+          fetchBal();
         }
         setInputValue("");
         setSellSucces(true);
@@ -122,7 +147,7 @@ const NewsCard = ({ name, stockprice, funds, news1, news2, onFundsUpdate }) => {
             <div className="newsList">
               <ul className="list-decimal mb-5">
                 <li>{news1}</li>
-                <li className="mt-3">{news2}</li>
+                {/* <li className="mt-3">{news2}</li> */}
               </ul>
             </div>
             <label htmlFor="textInput" className="text-xl opacity-50 mr-2 -ml-4 mt-4">

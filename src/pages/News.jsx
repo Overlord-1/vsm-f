@@ -207,12 +207,12 @@ const News = () => {
   // ]
 
 
-  const handlePortfolio = () => {
-    navigate("/portfolio");
-  };
-  const handleLeaderboard = () => {
-    navigate("/leaderboard");
-  };
+  // const handlePortfolio = () => {
+  //   navigate("/portfolio");
+  // };
+  // const handleLeaderboard = () => {
+  //   navigate("/leaderboard");
+  // };
 
   const handleFundsUpdate = (newFunds) => {
     setFunds(newFunds);

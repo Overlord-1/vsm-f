@@ -27,7 +27,7 @@ const PowerCard = () => {
     </motion.div> */}
 
     <Header text={"Power Cards"} />
-      <div className=" mt-24 faq-items max-w-[350px] mx-auto bg-black">
+      <div className=" mt-12 faq-items max-w-[350px] mx-auto bg-black">
         {accordionItems.map((item, i) => (
           <Accordion
             key={i}

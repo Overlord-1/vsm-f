@@ -1,0 +1,162 @@
+[
+    {
+      "symbol": "STS",
+      "forRound": 1,
+      "volatility": 4
+    },
+    {
+      "symbol": "STS",
+      "forRound": 2,
+      "volatility": 3
+    },
+    {
+      "symbol": "STS",
+      "forRound": 3,
+      "volatility": 6
+    },
+    {
+      "symbol": "STS",
+      "forRound": 4,
+      "volatility": -2
+    },
+    {
+      "symbol": "STS",
+      "forRound": 5,
+      "volatility": 9
+    },
+    {
+      "symbol": "STS",
+      "forRound": 6,
+      "volatility": -21
+    },
+    {
+      "symbol": "SFI",
+      "forRound": 1,
+      "volatility": -3
+    },
+    {
+      "symbol": "SFI",
+      "forRound": 2,
+      "volatility": 6
+    },
+    {
+      "symbol": "SFI",
+      "forRound": 3,
+      "volatility": -4
+    },
+    {
+      "symbol": "SFI",
+      "forRound": 4,
+      "volatility": -12
+    },
+    {
+      "symbol": "SFI",
+      "forRound": 5,
+      "volatility": 2
+    },
+    {
+      "symbol": "SFI",
+      "forRound": 6,
+      "volatility": -26
+    },
+    {
+      "symbol": "OTS",
+      "forRound": 1,
+      "volatility": 5
+    },
+    {
+      "symbol": "OTS",
+      "forRound": 2,
+      "volatility": 4
+    },
+    {
+      "symbol": "OTS",
+      "forRound": 3,
+      "volatility": 3
+    },
+    {
+      "symbol": "OTS",
+      "forRound": 4,
+      "volatility": 2
+    },
+    {
+      "symbol": "OTS",
+      "forRound": 5,
+      "volatility": 3
+    },
+    {
+      "symbol": "OTS",
+      "forRound": 6,
+      "volatility": 27
+    },
+    {
+      "symbol": "LL",
+      "forRound": 1,
+      "volatility": 8
+    },
+    {
+      "symbol": "LL",
+      "forRound": 2,
+      "volatility": 10
+    },
+    {
+      "symbol": "LL",
+      "forRound": 3,
+      "volatility": 4
+    },
+    {
+      "symbol": "LL",
+      "forRound": 4,
+      "volatility": -7
+    },
+    {
+      "symbol": "LL",
+      "forRound": 5,
+      "volatility": 1
+    },
+    {
+      "symbol": "LL",
+      "forRound": 6,
+      "volatility": 11
+    },
+    {
+      "symbol": "ABV",
+      "forRound": 2,
+      "volatility": 16
+    },
+    {
+      "symbol": "ABV",
+      "forRound": 3,
+      "volatility": 7
+    },
+    {
+      "symbol": "ABV",
+      "forRound": 4,
+      "volatility": 3
+    },
+    {
+      "symbol": "ABV",
+      "forRound": 5,
+      "volatility": -7
+    },
+    {
+      "symbol": "ABV",
+      "forRound": 6,
+      "volatility": -30
+    },
+    {
+      "symbol": "CCV",
+      "forRound": 4,
+      "volatility": 12
+    },
+    {
+      "symbol": "CCV",
+      "forRound": 5,
+      "volatility": 10
+    },
+    {
+      "symbol": "CCV",
+      "forRound": 6,
+      "volatility": 19
+    }
+  ]
