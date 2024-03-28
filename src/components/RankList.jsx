@@ -5,15 +5,15 @@ import axios from "axios";
 const RankList = () => {
   const token = localStorage.getItem("authToken");
   // let ranks = [
-  //   { rank: 1, name: "Ruchir", score: 3432 },
-  //   { rank: 2, name: "Rajas", score: 343 },
-  //   { rank: 3, name: "Hari", score: 224 },
-  //   { rank: 4, name: "Ram", score: 100 },
-  //   { rank: 5, name: "Krishna", score: 90 },
-  //   { rank: 6, name: "Ruchir", score: 79 },
-  //   { rank: 7, name: "Ruchir", score: 60 },
-  //   { rank: 8, name: "Ruchir", score: 42 },
-  //   { rank: 9, name: "Ruchir", score: 0 },
+  //   { rank: 1, name: "Ruchir", wealth: 3432 },
+  //   { rank: 2, name: "Rajas", wealth: 343 },
+  //   { rank: 3, name: "Hari", wealth: 224 },
+  //   { rank: 4, name: "Ram", wealth: 100 },
+  //   { rank: 5, name: "Krishna", wealth: 90 },
+  //   { rank: 6, name: "Ruchir2", wealth: 79 },
+  //   { rank: 7, name: "Ruchir3", wealth: 60 },
+  //   { rank: 8, name: "Ruchir4", wealth: 42 },
+  //   { rank: 9, name: "Ruchir5", wealth: 0 },
   // ];
   // let top3 = ranks.slice(0, 3);
   // ranks = ranks.slice(3);
@@ -50,14 +50,16 @@ const RankList = () => {
   return (
     <>
       {top3.map((parameter, index) => (
-        <Rank
-          color={colors[index]}
-          topRank={true}
-          key={index}
-          rank={parameter.rank}
-          name={parameter.name}
-          score={parameter.wealth}
-        />
+
+          <Rank
+            color={colors[index]}
+            topRank={true}
+            key={index}
+            rank={parameter.rank}
+            name={parameter.name}
+            score={parameter.wealth}
+          />
+
       ))}
 
       {ranks.map((parameter) => (

@@ -9,6 +9,7 @@ import Loading from './pages/Loading'
 import CalcRound from './pages/CalcRound'
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react"
+import Admin from './pages/Admin'
 
 
 
@@ -21,11 +22,13 @@ const App = () => {
     
     <Routes>
       <Route path='/' element= {<Login />}/>
-      <Route path='/Leaderboard' element= {<Leaderboard />}/>
+      {/* <Route path='/Leaderboard' element= {<Leaderboard />}/> */}
       <Route path='/news' element= {<News />}/>
-      <Route path='/portfolio' element= {<Portfolio />}/>
+      {/* <Route path='/portfolio' element= {<Portfolio />}/> */}
       <Route path='/loading' element= {<Loading />}/>
       <Route path='/calcround' element= {<CalcRound />}/>
+      <Route path='/admin' element= {<Admin />}/>
+
     </Routes>
     <Analytics />
     <SpeedInsights />

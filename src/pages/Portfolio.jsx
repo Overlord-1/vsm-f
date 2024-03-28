@@ -40,12 +40,12 @@ const Portfolio = () => {
     <div className="flex flex-col">
       <Header text={"Portfolio"} />
       <PLtracker invested={total} />
-      <button
+      {/* <button
             className="text-[#6cff73] font-bold bg-[#1E1F26] p-3 rounded-lg px-3 m-5 max-w-[1200px] mx-auto"
             onClick={handleClick}
           >
             Back to News
-          </button>
+          </button> */}
 
       <MiddleRow />
       {portfolio.map((parameter) => (
